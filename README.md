@@ -133,7 +133,7 @@ void loop(void) {
   mapsLocation += "," + lonCPPStr;
   lonCPPStr += "Lon";
   textFinal = text + latCPPStr + " " + lonCPPStr;
-  //Code beneath taken from Natashas Example
+ 
   textFinal.toCharArray(textC, textFinal.length() + 1);//conv String to C string
   Serial.println (textC);// textC can be sent to send long and lat location in text not in GoogleMap format
   Serial.println (mapsLocation);
