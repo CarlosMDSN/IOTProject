@@ -1,3 +1,5 @@
+ESP32+SIM808 CODE
+
 #include <SoftwareSerial.h>
 #include <DFRobot_SIM808.h>
 #include <TinyGPS++.h>
@@ -20,9 +22,9 @@ String mapsLocation = "http://maps.google.com/?q=";
 DFRobot_SIM808 sim808(&Serial2);
 String latCPPStr;
 String lonCPPStr;
-#define PHONE_NUMBER  "" //number you are texting to
-const char* ssid = "POCOF3";
-const char* password = "";
+#define PHONE_NUMBER  "0870977573" //number you are texting to
+const char* ssid = "FFXDP0W60F14";
+const char* password = "carlos132";
 
 WebServer server(80);
 const int PWR_PIN = 23; // if you want a SW reboot of Sim808
@@ -142,3 +144,72 @@ void loop(void) {
 
   while (1);//nothing to do. Don't want to keep sending texts and wasting credit!
 }
+
+
+WEBSERVER CODE
+
+String homePagePart1 = R"=====(
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="5">
+  <style>
+    body {       
+  background-color: black;
+  }
+  .flex-Container{
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+        align-items: center;
+      }
+    h1{
+    font: bold;
+    font-size: 40px;
+    font-family: Arial;
+    color: yellow;
+  }
+  p{
+    font-size: 25px;
+    font-family: Arial;
+    color: yellow;
+   }  
+  th, td {
+    font-size: 25px;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+    </style>
+  </head>
+  <body>
+    <div class="flex-Container">
+     <h1> GPS Tracker </h1>
+       <p> Welcome to my website Showcasing the GPS Tracker </p>
+     <table>
+        <tr>
+          <th>Sensor</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>LONGITUDE:</td>
+           <td>
+)=====";
+
+String homePagePart3 = R"=====(</tr>
+</td>
+         <td> LATITUDE:</td>
+        <td>)=====";
+
+String homePagePart5 = R"=====(</tr>
+      </table>
+     </div>
+  </body>
+  </html>
+)=====";
+
+
+
+
